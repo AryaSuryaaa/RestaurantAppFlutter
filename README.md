@@ -1,15 +1,15 @@
 # restaurant_app
 
-A new Flutter project.
+A new Flutter project. For Submission 1 Dicoding Fundamental Flutter
 
 ## Getting Started
 
 This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+A resources to get started this project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- [local restaurant json](https://github.com/dicodingacademy/assets/blob/main/flutter_fundamental_academy/local_restaurant.json)
+
 
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
