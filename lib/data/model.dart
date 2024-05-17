@@ -19,17 +19,15 @@ class Restaurant {
     required this.menus,
   });
 
-  factory Restaurant.fromJson(Map<String, dynamic> json) {
-    return Restaurant(
-      id: json['id'],
-      name: json['name'],
-      description: json['description'],
-      pictureId: json['pictureId'],
-      city: json['city'],
-      rating: (json['rating'] as num).toDouble(),
-      menus: Menus.fromJson(json['menus']),
-    );
-  }
+  factory Restaurant.fromJson(Map<String, dynamic> json) => Restaurant(
+    id: json['id'],
+    name: json['name'],
+    description: json['description'],
+    pictureId: json['pictureId'],
+    city: json['city'],
+    rating: (json['rating'] as num).toDouble(),
+    menus: Menus.fromJson(json['menus'])
+  );
 }
 
 List<Restaurant> parseRestaurants(String? json) {
@@ -37,8 +35,10 @@ List<Restaurant> parseRestaurants(String? json) {
     return [];
   }
 
-  final List parsed = jsonDecode(json);
-  return parsed.map((json) => Restaurant.fromJson(json)).toList();
+  final Map<String, dynamic> parsed = jsonDecode(json);
+  final List<dynamic> restaurants = parsed['restaurants'];
+
+  return restaurants.map((json) => Restaurant.fromJson(json)).toList();
 }
 
 class Menus {
