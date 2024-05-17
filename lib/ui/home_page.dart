@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:restaurant_app/data/model.dart';
 import 'package:restaurant_app/ui/detail_page.dart';
 
@@ -14,12 +12,12 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: NestedScrollView(
         headerSliverBuilder: (context, isScrolled) {
-          return [ SliverAppBar(
+          return [ const SliverAppBar(
             pinned: true,
             expandedHeight: 100,
             flexibleSpace: FlexibleSpaceBar(
               title: Text('Restaurant', style: TextStyle(color: Colors.black),),
-              titlePadding: const EdgeInsets.only(left: 16, bottom: 16),
+              titlePadding: EdgeInsets.only(left: 16, bottom: 16),
             ),
           )];
         },
@@ -28,24 +26,21 @@ class HomePage extends StatelessWidget {
           children: [
             Container(
               transform: Matrix4.translationValues(0.0, 35.0, 0.0),
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: Text('Recommended for you')),
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: const Text('Recommended for you')),
             Expanded(
-              child: Container(
-                //
-                child: FutureBuilder<String>(
-                  future: DefaultAssetBundle.of(context).loadString('assets/local_restaurant.json'),
-                  builder: (context, snapshot) {
-                    final List<Restaurant> restaurant = parseRestaurants(snapshot.data);
+              child: FutureBuilder<String>(
+                future: DefaultAssetBundle.of(context).loadString('assets/local_restaurant.json'),
+                builder: (context, snapshot) {
+                  final List<Restaurant> restaurant = parseRestaurants(snapshot.data);
 
-                    return ListView.builder(
-                        itemBuilder: (context, index) {
-                          return _buildRestaurantItem (context, restaurant[index]);
-                        },
-                      itemCount: restaurant.length,
-                    );
-                  },
-                ),
+                  return ListView.builder(
+                      itemBuilder: (context, index) {
+                        return _buildRestaurantItem (context, restaurant[index]);
+                      },
+                    itemCount: restaurant.length,
+                  );
+                },
               ),
             ),
           ],
@@ -58,7 +53,7 @@ class HomePage extends StatelessWidget {
 
 Widget _buildRestaurantItem(BuildContext context, Restaurant restaurant)  {
   return ListTile(
-    contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 2),
+    contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 2),
     leading: Hero(
       tag: restaurant.pictureId,
       child: ClipRRect(
@@ -73,7 +68,7 @@ Widget _buildRestaurantItem(BuildContext context, Restaurant restaurant)  {
     ),
     title: Text(
       restaurant.name,
-      style: TextStyle(
+      style: const TextStyle(
         fontSize: 18,
         fontWeight: FontWeight.bold
       ),
@@ -83,15 +78,15 @@ Widget _buildRestaurantItem(BuildContext context, Restaurant restaurant)  {
       children: [
         Row(
           children: [
-            Icon(Icons.location_on, size: 15,),
-            SizedBox(width: 4,),
+            const Icon(Icons.location_on, size: 15,),
+            const SizedBox(width: 4,),
             Text(restaurant.city),
           ],
         ),
         Row(
           children: [
-            Icon(Icons.star, size: 15,),
-            SizedBox(width: 4,),
+            const Icon(Icons.star, size: 15,),
+            const SizedBox(width: 4,),
             Text(restaurant.rating.toString()),
           ],
         ),

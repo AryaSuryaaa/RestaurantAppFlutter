@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:restaurant_app/data/model.dart';
 
@@ -18,7 +17,7 @@ class DetailPage extends StatelessWidget {
             Stack(
               children: [
                 ClipRRect(
-                  borderRadius: BorderRadius.only(bottomRight: Radius.circular(15), bottomLeft:Radius.circular(15)),
+                  borderRadius: const BorderRadius.only(bottomRight: Radius.circular(15), bottomLeft:Radius.circular(15)),
                   child: Image.network(
                     restaurant.pictureId,
                     height: 250,
@@ -63,7 +62,7 @@ class DetailPage extends StatelessWidget {
                     children: [
                       Text(
                           restaurant.name,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 26,
                           fontWeight: FontWeight.bold,
         
@@ -71,8 +70,8 @@ class DetailPage extends StatelessWidget {
                       ),
                       Row(
                         children: [
-                          Icon(Icons.star, size: 16, color: Colors.yellow,),
-                          SizedBox(width: 4,),
+                          const Icon(Icons.star, size: 16, color: Colors.yellow,),
+                          const SizedBox(width: 4,),
                           Text(restaurant.rating.toString())
                         ],
                       )
@@ -80,39 +79,39 @@ class DetailPage extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Icon(Icons.location_on, size: 16,),
-                      SizedBox(width: 4,),
+                      const Icon(Icons.location_on, size: 16,),
+                      const SizedBox(width: 4,),
                       Text(restaurant.city),
                     ],
                   ),
-                  SizedBox(height: 28,),
-                  Text('Description', style: TextStyle(fontWeight: FontWeight.bold),),
-                  SizedBox(height: 7,),
+                  const SizedBox(height: 28,),
+                  const Text('Description', style: TextStyle(fontWeight: FontWeight.bold),),
+                  const SizedBox(height: 7,),
                   Text(restaurant.description),
                 ],
               ),
             ),
-            SizedBox(height: 21,),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
+            const SizedBox(height: 21,),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16),
               child: Text('Foods', style: TextStyle(fontWeight: FontWeight.bold),),
             ),
-            SizedBox(height: 7,),
-            Container(
+            const SizedBox(height: 7,),
+            SizedBox(
                 height: 40,
                 child: _buildFoodsList(restaurant.menus.foods)
             ),
-            SizedBox(height: 21,),
-            Padding(
-              padding: const EdgeInsets.only(left: 16),
+            const SizedBox(height: 21,),
+            const Padding(
+              padding: EdgeInsets.only(left: 16),
               child: Text('Drinks', style: TextStyle(fontWeight: FontWeight.bold),),
             ),
-            SizedBox(height: 7,),
-            Container(
+            const SizedBox(height: 7,),
+            SizedBox(
                 height: 40,
                 child: _buildDrinksList(restaurant.menus.drinks)
             ),
-            SizedBox(height: 21,),
+            const SizedBox(height: 21,),
           ],
         ),
       ),
