@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:restaurant_app/data/model.dart';
+import 'package:restaurant_app/ui/detail_page.dart';
 import 'package:restaurant_app/ui/home_page.dart';
 
 void main() {
@@ -16,7 +18,13 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomePage(),
+      initialRoute: HomePage.routeName,
+      routes: {
+        HomePage.routeName: (context) => HomePage(),
+        DetailPage.routeName: (context) => DetailPage(
+          restaurant: ModalRoute.of(context)?.settings.arguments as Restaurant
+        )
+      },
     );
   }
 }
