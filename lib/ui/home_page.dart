@@ -2,9 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:restaurant_app/data/model.dart';
+import 'package:restaurant_app/ui/detail_page.dart';
 
 class HomePage extends StatelessWidget {
   static const routeName = '/home_page';
+
   const HomePage({super.key});
 
   @override
@@ -97,7 +99,7 @@ Widget _buildRestaurantItem(BuildContext context, Restaurant restaurant)  {
       ],
     ),
     onTap: (){
-
+      Navigator.pushNamed(context, DetailPage.routeName, arguments: restaurant);
     },
   );
 }
