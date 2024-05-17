@@ -55,7 +55,7 @@ class HomePage extends StatelessWidget {
 
 Widget _buildRestaurantItem(BuildContext context, Restaurant restaurant)  {
   return ListTile(
-    contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+    contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 2),
     leading: Hero(
       tag: restaurant.pictureId,
       child: ClipRRect(
